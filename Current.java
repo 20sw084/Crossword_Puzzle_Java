@@ -1,4 +1,5 @@
 package jonnyCrosswords;
+import java.util.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -149,7 +150,51 @@ public class GUI implements MouseListener{
 				jp3.add(jtf3[i][j]);
 			}
 		}
-		
+		jb1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String strtext="";
+				for(int i=0;i<1;i++) {
+					for(int j=0;j<9;j++) {
+					strtext=strtext+jtf3[i][j].getText();
+					}
+				}
+				String strings[]=new String[26];
+				strings[0]="MICHAELPHELPS";
+				strings[1]="SUSANN";
+				strings[2]="LASIK";
+				strings[3]="MASTER";
+				strings[4]="HARPO";
+				strings[5]="OSMOSIS";
+				strings[6]="ARIEL";
+				strings[7]="SWAMI";
+				strings[8]="LOO";
+				strings[9]="MACAW";
+				strings[10]="ID";
+				strings[11]="EVANLYCASEK";
+				strings[12]="SOLVE";
+				strings[13]="CARLLEWIS";
+				strings[14]="CRYING";
+				strings[15]="BRUCEJENNER";
+				strings[16]="SIR";
+				strings[17]="STARDOM";
+				strings[18]="ROUND";
+				strings[19]="SON";
+				strings[20]="BRADY";
+				strings[21]="ETHAN";
+				strings[22]="HAITI";
+				strings[23]="MOM";
+				strings[24]="OLAND";
+				strings[25]="PEYTONMANNING";
+				Arrays.sort(strings, Collections.reverseOrder());
+				for(int i=0;i<strings.length;i++) {
+					if(strings[i].equals(strtext)){
+					JOptionPane.showMessageDialog(jf,"Word Found","Success",JOptionPane.OK_OPTION);  
+						}
+				}
+			}
+		});
 		
 		jf.add(jp1);
 		jf.add(jp2);
