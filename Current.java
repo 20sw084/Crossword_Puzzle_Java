@@ -34,48 +34,27 @@ public class GUI {
 		jb1.setText("Check");
 		jb1.setFont(new Font(null,Font.PLAIN,6));
 		jb1.setVisible(true);
+		
+		try{
+            fs=new FileReader("C:/Users/hp/eclipse-workspace/jonnyCrosswords/src/puzzle.txt");
+            BufferedReader br=new BufferedReader(fs);
+            String[] dimensions = br.readLine().split(" ");
+            char[][] letterGrid = new char[Integer.parseInt(dimensions[0])][Integer.parseInt(dimensions[1])];
+            String line=null;
+            while ((line=br.readLine())!=null) {
+            	String[] str=line.split(" ",13);
+            	for(int i=0;i<str.length;i++) {
+            		
+            	}
+            }
+
+			}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		jf.add(jp1);
 		jf.add(jp2);
 		jf.add(jp3);
 		jf.add(jb1);
-		try{
-            fs=new FileReader("C:/Users/Lenovo/eclipse-workspace/jonnyCrosswords/src/jonnyCrosswords/puzzle.txt");
-            BufferedReader br=new BufferedReader(fs);
-            String[] dimensions = br.readLine().split(" ");
-            char[][] letterGrid = new char[Integer.parseInt(dimensions[0])][Integer.parseInt(dimensions[1])];
-//                System.out.println(letterGrid[0].length);
-//            for (int i = 0; i < letterGrid[0].length; i++) {
-            for (int i = 0; i < letterGrid[0].length; i++) {
-                String val = br.readLine();
-                System.out.println(i);
-                letterGrid[i]= val.toCharArray();
-            }
-            int next=0;
-            while((next=br.read())!=-1) {
-            int r = br.read();
-        int c = br.read();
-        letterGrid = new char[r][c];
-
-        for (int i = 0; i<r; i++){
-            String getChar = new String(br.readLine());
-            for(int j=0; j<c; j++){
-                letterGrid[i][j] = getChar.charAt(j);
-            }
-        }
-            }
-          String sCurrentLine;
-          while ((sCurrentLine = br.readLine()) != null) {
-              System.out.println(sCurrentLine);
-          }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } 
-		catch(ArrayIndexOutOfBoundsException io) {
-			
-		}
-
-   }
-
-
+	}
 }
