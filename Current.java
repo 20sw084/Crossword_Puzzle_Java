@@ -1,10 +1,11 @@
 package jonnyCrosswords;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 
-public class GUI {
+public class GUI implements MouseListener{
 	 JFrame jf;
 	 JPanel jp1,jp2,jp3;
 	 FileReader  fs;
@@ -42,7 +43,8 @@ public class GUI {
 		GridLayout gl2=new GridLayout(1,9);
 		jp3.setLayout(gl2);
 		JTextField[][] jtf3=new JTextField[1][9];	
-		
+
+
 		
 		JTextArea text=new JTextArea("Crossword Puzzle Instructions:\n");
 		text.setFont(new Font(null,Font.PLAIN,9));
@@ -51,12 +53,14 @@ public class GUI {
 		for(int i=0;i<13;i++) {
 			for(int j=0;j<13;j++) {
 				jtf2[i][j]=new JTextField();
+				jtf2[i][j].setFocusable(true);
+				jtf2[i][j].addMouseListener(this);
 			}
 		}
 		
 		for(int i=0;i<1;i++) {
 			for(int j=0;j<9;j++) {
-				jtf3[i][j]=new JTextField();
+				jtf3[i][j]=new JTextField(1);
 				jtf3[i][j].setFont(new Font(null, Font.PLAIN, 30));
 				jtf3[i][j].setBackground(Color.gray);
 			}
@@ -82,7 +86,8 @@ public class GUI {
             		}
             		else if(str[i].equals("X")) {
             			jtf2[j][i].setBackground(Color.BLACK);
-            			jtf2[j][i].setForeground(Color.BLACK);
+//            			jtf2[j][i].setForeground(Color.BLACK);
+            			jtf2[j][i].setEditable(false);
             			jtf2[j][i].setFont(new Font("SansSerif", Font.BOLD, 30));
             		}
             		else if(str[i].equals("S")) {
@@ -150,5 +155,37 @@ public class GUI {
 		jf.add(jp2);
 		jf.add(jp3);
 		jf.add(jb1);
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		 String sysroot = System.getenv("SystemRoot");
+		    try {
+				Process proc = Runtime.getRuntime().exec(sysroot + "/system32/osk.exe");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}		    
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
