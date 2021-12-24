@@ -55,9 +55,10 @@ public class GUI implements MouseListener{
 		jp3.setBorder(BorderFactory.createLineBorder(Color.black));
 		jp3.setVisible(true);
 		JButton jb1=new JButton();
-		jb1.setBounds(570,570,55,15);
+		jb1.setBounds(570,558,85,30);
 		jb1.setText("Check");
-		jb1.setFont(new Font(null,Font.PLAIN,6));
+		jb1.setBackground(Color.decode("#87ceeb"));
+		jb1.setFont(new Font(null,Font.BOLD,12));
 		jb1.setVisible(true);
 		GridLayout gl=new GridLayout(13,13);
 
@@ -261,7 +262,6 @@ public class GUI implements MouseListener{
             for (int j = 0; j < 13; j++) {
                 try {
                 	if (i == pRows[k] && j == pCols[k]) {
-                        jtf2[i][j].setBackground(Color.white);
                         jtf2[i][j].setEditable(true);
                         jtf2[i][j].setFocusable(true);
                         jtf2[i][j].setName(String.valueOf(pChars[k]));
@@ -282,7 +282,6 @@ public class GUI implements MouseListener{
     	 	try
             	{
             	if (i == pRows[k] && j == pCols[k]) {
-                	  System.out.println("I\t"+i+"\tJ\t"+j+"\tK\t"+k);
                         if (jtf2[i][j].getName().equals(jtf2[i][j].getText())) {
                         	jtf2[i][j].setForeground(new Color(0, 134, 30));
                         	
